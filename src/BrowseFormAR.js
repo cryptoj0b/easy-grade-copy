@@ -74,8 +74,8 @@ export default function BrowseForm(){
           <input type="file" id="file" name="file" accept=".docx" /> {/* btw you can add file types we'd need in the accept parameter there */}
           {/* this key thing majing is for the auto-made key for each assignment made from the tutor, 
           sent to his students, so that when they enter their file it only gets submitted to the tutor */}
-          <input name='key' className='rounded mt-2 font-Tajawal'style={{direction: 'rtl'}} value= {key} placeholder=" أدخل الرمز..." onChange={e => setKey(e.target.value)}/><br/>
-          <input type="submit" className='bg-gradient-to-r from-cyan-500 to-blue-500 rounded text-white cursor-pointer' style={{marginTop: "10px"}}/>
+          <input name='key' className='rounded mt-2 w-[70px] sm:w-auto font-Tajawal'style={{direction: 'rtl'}} value= {key} placeholder=" أدخل الرمز..." onChange={e => setKey(e.target.value)}/><br/>
+          <input type="submit" className='bg-gradient-to-r from-cyan-500 to-blue-500 rounded w-[70px] sm:w-auto text-white cursor-pointer' style={{marginTop: "10px"}}/>
         </form>
       </div>
       </div>
