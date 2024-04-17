@@ -31,7 +31,7 @@ function NewPassword() {
     };
 
     return (
-      <div className="new-password-container">
+      <div className="new-password-container border-black border-[1px] border-solid rounded">
         <form onSubmit={handleChangePassword}>
           <h2>Set New Password</h2>
           <div>
