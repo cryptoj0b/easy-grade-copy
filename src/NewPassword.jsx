@@ -56,7 +56,7 @@ function NewPassword() {
               />
             </label>
           </div>
-          <button type="submit" className="change-password-button  border-black border-[1px] border-solid rounded">Change Password</button>
+          <button type="submit" className="change-password-button border-[2px] border-black mt-4 rounded border-solid w-[150px] font-Tajawal">Change Password</button>
         </form>
       </div>
     );
