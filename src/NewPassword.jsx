@@ -31,7 +31,7 @@ function NewPassword() {
     };
 
     return (
-      <div className="new-password-container border-black border-[1px] border-solid rounded">
+      <div className="new-password-container">
         <form onSubmit={handleChangePassword}>
           <h2>Set New Password</h2>
           <div>
@@ -39,6 +39,7 @@ function NewPassword() {
               <input 
                 type="password" 
                 value={newPassword} 
+                className="border-black border-[1px] border-solid rounded mt-4"
                 onChange={e => setNewPassword(e.target.value)} 
                 required 
               />
@@ -48,13 +49,14 @@ function NewPassword() {
             <label>Confirm New Password: 
               <input 
                 type="password" 
+                className="border-black border-[1px] border-solid rounded mt-4"
                 value={confirmNewPassword} 
                 onChange={e => setConfirmNewPassword(e.target.value)} 
                 required 
               />
             </label>
           </div>
-          <button type="submit" className="change-password-button">Change Password</button>
+          <button type="submit" className="change-password-button  border-black border-[1px] border-solid rounded">Change Password</button>
         </form>
       </div>
     );
