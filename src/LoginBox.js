@@ -8,7 +8,7 @@ const poolData = {
     UserPoolId: 'eu-north-1_vyP0c3eU8',
     ClientId: '1mf5ato0bus8fk929eeau6rogf'
 };
-
+document.body.style.display = 'flex';
 const userPool = new CognitoUserPool(poolData);
 
 export default function LoginBox() {
