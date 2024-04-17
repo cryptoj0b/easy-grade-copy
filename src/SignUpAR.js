@@ -10,7 +10,7 @@ export default function SignupAR() {
   return (
     <div>
       <div className="custom-container text-center bg-whiter" >
-        <form action="signupEN.php" method="post">
+        <form method="post">
           <div className="header" style={{ direction: 'rtl'}}>التسجيل</div>
           {/* استخدم هذا لإدخال البريد الإلكتروني ، تحقق من الاسم */}
           <input style={{ direction: 'rtl'}} type="email" id="email" name="email" placeholder=" البريد الإلكتروني" className="emailBox font-Tajawal" /><br /><br />

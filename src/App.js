@@ -13,6 +13,8 @@ import LoginPageAR from './LoginPageAR';
 import SignupAR from './SignUpAR';
 import TeacherOrStudent from './TorS';
 import TeacherOrStudentAR from './TorSAR';
+import NewPasswordPageEN from './NewPasswordPageEN';
+import NewPasswordPageAR from './NewPasswordPageAR';
 
 
 
@@ -32,6 +34,8 @@ function App() {
       <Route path='/signup-ar' element = {<SignupAR/>}/>
       <Route path='/teacher-or-student' element = {<TeacherOrStudent/>}/>
       <Route path='/teacher-or-student-ar' element = {<TeacherOrStudentAR/>}/>
+      <Route path='/create-new-password-en' element = {<NewPasswordPageEN/>}/>
+      <Route path='/create-new-password-ar' element = {<NewPasswordPageAR/>}/>
       </Routes>
       </Router>
     </>

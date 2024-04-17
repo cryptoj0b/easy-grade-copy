@@ -8,7 +8,7 @@ export default function SignupEN (){
     return (
       <div>
     <div className="custom-container text-center bg-whiter">
-      <form action="signupEN.php" method="post">
+      <form method="post">
         <div className="header">Sign up</div>
         {/* use this to take email, check the name */}
         <input type="email" id="email" name="email" placeholder=" email" className="emailBox" /><br /><br />

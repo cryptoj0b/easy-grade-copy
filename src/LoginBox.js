@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 import GoogleButton from "./GoogleButton";
 import { CognitoUserPool, AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
+import NewPassword from "./NewPassword";
 
 // Configuration for the Cognito User Pool
 const poolData = {
