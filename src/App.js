@@ -34,6 +34,7 @@ function App() {
           <Route path='/teacher-or-student-ar' element={<TeacherOrStudentAR/>}/>
           <Route path='/create-new-password-en' element={<NewPasswordPageEN/>}/>
           <Route path='/create-new-password-ar' element={<NewPasswordPageAR/>}/>
+          <Route path="/profile" element={<UserProfile/>}/> 
         </Routes>
       </Router>
     </UserProvider>
