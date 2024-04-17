@@ -49,7 +49,7 @@ export default function LoginBox() {
                     username: cognitoUser.getUsername(),
                     userAttributes: userAttributes
                 };
-                navigate("/new-password", { state: minimalUserAttributes });
+                navigate("/create-new-password-en", { state: minimalUserAttributes });
             }
         });
     }
