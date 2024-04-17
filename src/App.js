@@ -15,11 +15,12 @@ import TeacherOrStudent from './TorS';
 import TeacherOrStudentAR from './TorSAR';
 import NewPasswordPageEN from './NewPasswordPageEN';
 import NewPasswordPageAR from './NewPasswordPageAR';
-import { UserProvider } from './UserContext'; // Ensure this path matches where you created the UserContext file
+import UserProfile from './UserProfile';  
+import { UserProvider } from './UserContext';
 
 function App() {
   return (
-    <UserProvider> {/* Wrap Router in UserProvider to make user context available globally */}
+    <UserProvider>
       <Router>
         <Routes>
           <Route path="/" element={<DashboardEN/>} />
@@ -34,7 +35,7 @@ function App() {
           <Route path='/teacher-or-student-ar' element={<TeacherOrStudentAR/>}/>
           <Route path='/create-new-password-en' element={<NewPasswordPageEN/>}/>
           <Route path='/create-new-password-ar' element={<NewPasswordPageAR/>}/>
-          <Route path="/profile" element={<UserProfile/>}/> 
+          <Route path="/profile" element={<UserProfile/>} />  
         </Routes>
       </Router>
     </UserProvider>
