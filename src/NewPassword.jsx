@@ -1,35 +1,63 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function NewPassword({ user, onSubmit }) {
+function NewPassword() {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const user = location.state.user; // Receive the Cognito user object
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
-  
+
     const handleChangePassword = (event) => {
       event.preventDefault();
-      user.completeNewPasswordChallenge(newPassword, {
-        // You may also need to pass updated attributes here
-      }, {
+
+      // Ensure the new passwords match before submitting
+      if (newPassword !== confirmNewPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Complete new password challenge
+      user.completeNewPasswordChallenge(newPassword, {}, {
         onSuccess: (data) => {
           console.log("Password change successful!", data);
-          onSubmit();
+          navigate("/home"); // Navigate to home or login page after successful password update
         },
         onFailure: (err) => {
           console.error("Failed to change password:", err);
+          alert("Failed to change password: " + err.message);
         }
       });
     };
-  
+
     return (
-      <form onSubmit={handleChangePassword}>
-        <label>New Password: 
-          <input type="password" value={newPassword} className="border-black border-[1px] border-solid rounded " onChange={(e) => setNewPassword(e.target.value)} required />
-        </label>
-        <br/>
-        <label>Confirm password: 
-          <input type="password" value={confirmNewPassword} className="border-black border-[1px] border-solid rounded mt-4" onChange={(e) => setConfirmNewPassword(e.target.value)} required />
-        </label>
-        <br/>
-        <button type="submit" className="border-[2px] border-black mt-4 rounded border-solid w-[150px]">Change Password</button>
-      </form>
+      <div className="new-password-container">
+        <form onSubmit={handleChangePassword}>
+          <h2>Set New Password</h2>
+          <div>
+            <label>New Password: 
+              <input 
+                type="password" 
+                value={newPassword} 
+                onChange={e => setNewPassword(e.target.value)} 
+                required 
+              />
+            </label>
+          </div>
+          <div>
+            <label>Confirm New Password: 
+              <input 
+                type="password" 
+                value={confirmNewPassword} 
+                onChange={e => setConfirmNewPassword(e.target.value)} 
+                required 
+              />
+            </label>
+          </div>
+          <button type="submit" className="change-password-button">Change Password</button>
+        </form>
+      </div>
     );
-  }
+}
+
+export default NewPassword;
