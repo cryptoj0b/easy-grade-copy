@@ -32,19 +32,24 @@ export default function LoginBox() {
 
         cognitoUser.authenticateUser(authenticationDetails, {
             onSuccess: function (result) {
+                const essentialUserInfo = {
+                    username: cognitoUser.getUsername(),
+                    sessionToken: result.getIdToken().getJwtToken(), // this token is usually used in subsequent requests for authentication
+                };
+                navigate("/home", { state: essentialUserInfo });
                 console.log('Access token:', result.getAccessToken().getJwtToken());
-                navigate("/home"); // Navigate to home after successful login
             },
             onFailure: function(err) {
                 alert(err.message || JSON.stringify(err));
             },
             newPasswordRequired: function(userAttributes, requiredAttributes) {
                 console.log("User needs to set a new password.");
-                // Remove attributes that the user should not be able to modify
-                delete userAttributes.email_verified;
-
-                // Redirect to set a new password page
-                navigate("/new-password", { state: { user: cognitoUser, userAttributes: userAttributes } });
+                delete userAttributes.email_verified; // Remove attributes that the user should not be able to modify
+                const minimalUserAttributes = {
+                    username: cognitoUser.getUsername(),
+                    userAttributes: userAttributes
+                };
+                navigate("/new-password", { state: minimalUserAttributes });
             }
         });
     }
@@ -88,3 +93,4 @@ export default function LoginBox() {
         </div>
     );
 }
+
