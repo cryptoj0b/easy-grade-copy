@@ -83,7 +83,7 @@ export default function LoginBox() {
                 <input
                     type="submit"
                     value="Login"
-                    className="logButton cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500"
+                    className="logButton cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 active:bg-gradient-to-r active:from-cyan-600 active:to-blue-700"
                 /><br/>
                 <a className="text-lighterBlue underline cursor-pointer" onClick={handleSignUpClick}>
                     don't have an account? sign up here!
