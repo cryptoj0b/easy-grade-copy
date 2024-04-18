@@ -21,7 +21,7 @@ function NewPassword() {
       user.completeNewPasswordChallenge(newPassword, {}, {
         onSuccess: (data) => {
           console.log("Password change successful!", data);
-          navigate("/home"); // Navigate to home or login page after successful password update
+          navigate("/HomePage.js"); // Navigate to home or login page after successful password update
         },
         onFailure: (err) => {
           console.error("Failed to change password:", err);
