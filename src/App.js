@@ -17,6 +17,7 @@ import NewPasswordPageEN from './NewPasswordPageEN';
 import NewPasswordPageAR from './NewPasswordPageAR';
 import UserProfile from './UserProfile';
 import { UserProvider } from './UserContext';
+import CreateNewPasswordEN from './CreateNewPasswordEN';
 
 function App() {
   return (
