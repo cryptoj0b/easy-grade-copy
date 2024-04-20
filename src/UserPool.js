@@ -7,21 +7,19 @@ const poolData = {
 
 const userPool = new CognitoUserPool(poolData);
 
-/**
- * Retrieves the current user from the local storage.
- */
+
 export const getCurrentUser = () => {
     return userPool.getCurrentUser();
 };
 
-/**
+
  * Signs up a new user to the user pool.
  * @param {string} username - The user's username.
  * @param {string} password - The user's password.
  * @param {array} attributeList - Array of attributes (e.g., email).
  * @param {function} onSuccess - Callback on success.
  * @param {function} onFailure - Callback on failure.
- */
+ 
 export const registerUser = (username, password, attributeList, onSuccess, onFailure) => {
     userPool.signUp(username, password, attributeList, null, (err, result) => {
         if (err) {
@@ -32,13 +30,12 @@ export const registerUser = (username, password, attributeList, onSuccess, onFai
     });
 };
 
-/**
  * Initiates the sign in process for a user.
  * @param {string} username - The user's username.
  * @param {string} password - The user's password.
  * @param {function} onSuccess - Callback on success.
  * @param {function} onFailure - Callback on failure.
- */
+ 
 export const loginUser = (username, password, onSuccess, onFailure) => {
     const userData = {
         Username: username,
