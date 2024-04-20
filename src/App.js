@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BrowseForm from './BrowseForm';
 import Footer from './Footer';
 import HomePage from './HomePage';
@@ -15,7 +15,7 @@ import TeacherOrStudent from './TorS';
 import TeacherOrStudentAR from './TorSAR';
 import NewPasswordPageEN from './NewPasswordPageEN';
 import NewPasswordPageAR from './NewPasswordPageAR';
-import UserProfile from './UserProfile';  
+import UserProfile from './UserProfile';
 import { UserProvider } from './UserContext';
 
 function App() {
@@ -23,19 +23,19 @@ function App() {
     <UserProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<DashboardEN/>} />
-          <Route path="/login" element={<LoginPageEn/>} />
-          <Route path="/signup" element={<SignupEN/>} />
-          <Route path='/Home' element={<HomePage/>} />
-          <Route path='/dashboard-ar' element={<DashboardAR/>}/>
-          <Route path='/Home-ar' element={<HomePageAR/>}/>
-          <Route path='/login-ar' element={<LoginPageAR/>}/>
-          <Route path='/signup-ar' element={<SignupAR/>}/>
-          <Route path='/teacher-or-student' element={<TeacherOrStudent/>}/>
-          <Route path='/teacher-or-student-ar' element={<TeacherOrStudentAR/>}/>
-          <Route path='/create-new-password-en' element={<NewPasswordPageEN/>}/>
-          <Route path='/create-new-password-ar' element={<NewPasswordPageAR/>}/>
-          <Route path="/profile" element={<UserProfile/>} />  
+          <Route path="/" element={<DashboardEN />} />
+          <Route path="/login" element={<LoginPageEn />} />
+          <Route path="/signup" element={<SignupEN />} />
+          <Route path="/Home" element={<HomePage />} />
+          <Route path="/dashboard-ar" element={<DashboardAR />} />
+          <Route path="/Home-ar" element={<HomePageAR />} />
+          <Route path="/login-ar" element={<LoginPageAR />} />
+          <Route path="/signup-ar" element={<SignupAR />} />
+          <Route path="/teacher-or-student" element={<TeacherOrStudent />} />
+          <Route path="/teacher-or-student-ar" element={<TeacherOrStudentAR />} />
+          <Route path="/create-new-password-en" element={<NewPasswordPageEN />} />
+          <Route path="/create-new-password-ar" element={<NewPasswordPageAR />} />
+          <Route path="/profile" element={<UserProfile />} />
         </Routes>
       </Router>
     </UserProvider>
