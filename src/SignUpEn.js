@@ -1,26 +1,54 @@
-import GoogleButton from "./GoogleButton";
-import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
-export default function SignupEN (){
+import React, { useState } from 'react';
+import { registerUser } from './UserPool'; // Import the registration function
 
-  document.body.style.display = 'flex';
-  document.body.style.backgroundColor = "#0b3050";
-  document.body.style.paddingTop = "50px";
+function SignupEN() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSignup = (event) => {
+        event.preventDefault();
+
+        // Call the registerUser function from UserPool.js
+        registerUser(username, password, [],
+            (result) => {
+                console.log("Registration successful", result);
+                // Handle navigation or state update upon successful registration
+            },
+            (err) => {
+                console.error("Registration failed", err);
+                setError(err.message || 'Failed to register');
+            }
+        );
+    };
+
     return (
-      <div>
-    <div className="custom-container text-center bg-whiter">
-      <form method="post">
-        <div className="header">Sign up</div>
-        {/* use this to take email, check the name */}
-        <input type="email" id="email" name="email" placeholder=" email" className="emailBox" /><br /><br />
-        {/* use this to take password, also check the name */}
-        <input type="password" className="emailBox" placeholder=" create password" id="password1" name="password" /><br /><br />
-        <input type="password" className="emailBox" placeholder=" confirm password" id="password2" name="password" /><br /><br />
-        {/* change the method and action and whatever you'd need */}
-        <input type="submit" value="Sign up" className="logButton cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500" />
-        {/* change GoogleButton.js NOT this one */}
-        <GoogleButton/>
-      </form>
-    </div>
+        <div>
+            <h2>Sign Up</h2>
+            <form onSubmit={handleSignup}>
+                <label>
+                    Username:
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Password:
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </label>
+                <button type="submit">Sign Up</button>
+            </form>
+            {error && <p>{error}</p>}
         </div>
-    )
+    );
 }
+
+export default SignupEN;
