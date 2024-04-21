@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './App.css'; 
+import './App.css';
 import AWS from 'aws-sdk';
+import grayImage from './Grayscale_Transparent_NoBuffer.png'; // Ensure this is imported
 
 AWS.config.update({
   region: 'eu-north-1',
@@ -8,9 +9,9 @@ AWS.config.update({
     IdentityPoolId: 'eu-north-1_vyP0c3eU8'
   })
 });
-const s3 = new AWS.S3({
-  params: { Bucket: 'studentupload' }
-});
+
+const s3 = new AWS.S3();
+
 function BrowseForm() {
   const handleDrop = async (e) => {
     e.preventDefault();
@@ -23,15 +24,18 @@ function BrowseForm() {
         Body: file,
         ACL: 'public-read'
       };
-      s3.upload(uploadParams, function(err, data) {
-        if (err) {
-          console.log('Error:', err);
-        } else {
-          console.log('Upload Success:', data.Location);
-        }
-      });
+
+      try {
+        const data = await s3.upload(uploadParams).promise();
+        console.log('Upload Success:', data.Location);
+      } catch (err) {
+        console.log('Error uploading file:', err);
+      }
+    } else {
+      alert('Please drop a .docx file.');
     }
   };
+
   return (
     <div className='flex justify-center items-center h-screen bg-blue-50'>
       <div className="bg-blue-100 w-3/4 md:w-1/2 p-10 h-auto rounded-lg" id="dropArea"
@@ -51,4 +55,5 @@ function BrowseForm() {
     </div>
   );
 }
+
 export default BrowseForm;
