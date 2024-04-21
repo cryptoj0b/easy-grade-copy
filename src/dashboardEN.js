@@ -10,13 +10,15 @@ export default function DashboardEN(){
 
     const loginUrl = "https://1.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=1mf5ato0bus8fk929eeau6rogf&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
 
-   
+    // Function to handle redirection
     const handleLogin = () => {
+    // Function to redirect to the login URL
     const redirectToLogin = () => {
-        window.location.href = loginUrl; 
+        window.location.href = loginUrl; // Redirect to the Cognito login URL
     };
 
-    
+    // Re-use the login function for signup for now
+    // If you have a different URL for signup, replace `handleLogin` in the onClick for the signup button
     const handleSignUp = () => {
     // Function to redirect to the signup URL
     const redirectToSignUp = () => {
