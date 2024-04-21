@@ -79,7 +79,6 @@ export default function BrowseForm() {
                 </ul>
                 <form onSubmit={handleSubmit} className='grid place-items-center mt-6'>
                     <input type="file" id="file" name="file" accept=".docx" onChange={e => setFile(e.target.files[0])} />
-                    <input name='key' className='rounded mt-2' value={key} placeholder="Enter key..." onChange={e => setKey(e.target.value)} /><br />
                     <input type="submit" value="Submit" className='bg-gradient-to-r from-cyan-500 to-blue-500 rounded text-white cursor-pointer mt-2' />
                 </form>
             </div>
