@@ -1,51 +1,46 @@
-import Footer from './Footer';
 import gradeLogo from './grade_1.png';
 import logo from './easygradepfp.png';
-import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 
+export default function DashboardEN() {
+  document.body.style.backgroundColor = "#f3fbfb";
 export default function DashboardEN(){
     document.body.style.backgroundColor = "#f3fbfb";
     document.body.style.display = 'flex';
     document.body.style.paddingTop = "150px";
-    const href = '/dashboard-ar';
-    const navigate = useNavigate();
+
+    const loginUrl = "https://1.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=1mf5ato0bus8fk929eeau6rogf&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
+
+   
+    const handleLogin = () => {
+    const redirectToLogin = () => {
+        window.location.href = loginUrl; 
+    };
+
     
-    //btw you dont need to do much on this page so I wont bother documenting it, it takes you to the login and signup anyway
+    const handleSignUp = () => {
+    // Function to redirect to the signup URL
+    const redirectToSignUp = () => {
+        window.location.href = loginUrl; 
+    };
 
+    return  (        
     return (        
-        
         <>
-        <nav className = "container2">
-        <container className="inner-container"  onClick={function N (){navigate("/dashboard-ar"); }}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-globe" viewBox="0 0 16 16">
-            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
-          </svg></container>
-          <p className="inner-container-extras" id="topText">Dashboard</p>
-        <container className = "logoContainer" onClick={function N (){navigate("/"); }}>
-            <img className = "logo w-12 md:10 sm:9" src = {logo} style={{marginTop: "0vh"}}></img>
-        </container>
-    </nav>
-
-
-
-
-        <div className='flex w-screen'>
-        <img src= {gradeLogo} className='ml-4 sm:ml-[5vw] w-[90%]' ></img>
-        </div> 
-        <p className='text-[4vw] lg:text-2xl max-w-[80%] pl-5 mx-auto text-darkBlue font-Tajawal text-center' id='paragraph' style={{marginTop: "10vh"}}>
-  Welcome to Easy Grade, where our GPT-powered tool is revolutionizing the grading process, combining efficiency & detailed analysis to transform the way writing assignments are assessed.
-</p>
-        <p className='text-[4vw] lg:text-2xl max-w-[80%] pl-5 lg:pl-0 mx-auto text-darkBlue pb-10vh font-Tajawal text-center'><br/>By providing instant, comprehensive feedback, we are dedicated to enhancing educational
-        outcomes and empowering tutors; enabling them to focus on fostering student success and excellence.</p>
-
-        
-        <div className='w-full inline-flex justify-center mt-[10vh] '>
-        <button className=' dashboard-button rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter mr-[5vw] border-[2px] border-lighterBlue '  onClick={function N (){navigate("/login")}}>login</button> 
-        <button className='dashboard-button ml-[5vw]  rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter border-[2px] border-lighterBlue ' onClick={function N (){navigate("/signup")}}>sign up</button>
-        </div>
-        
-         
-         <Footer/>  
-         
-        </>
-    )
-}
+            <nav className="container2">
+                {/* ... navigation content ... */}
+            </nav>
+            <div className='flex w-screen'>
+                <img src={gradeLogo} className='ml-4 sm:ml-[5vw] w-[90%]' alt="Grade Logo"></img>
+            </div>
+            <p className='text-[4vw] lg:text-2xl max-w-[80%] pl-5 mx-auto text-darkBlue font-Tajawal text-center' style={{ marginTop: "10vh" }}>
+                Welcome to Easy Grade, where our GPT-powered tool is revolutionizing the grading process, combining efficiency & detailed analysis to transform the way writing assignments are assessed.
+            </p>
+            <p className='text-[4vw] lg:text-2xl max-w-[80%] pl-5 lg:pl-0 mx-auto text-darkBlue pb-10vh font-Tajawal text-center'>
+                By providing instant, comprehensive feedback, we are dedicated to enhancing educational outcomes and empowering tutors; enabling them to focus on fostering student success and excellence.
+            </p>
+            <div className='w-full inline-flex justify-center mt-[10vh]'>
+                {/* Redirect to the login URL when the login button is clicked */}
+                <button className='dashboard-button rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter mr-[5vw] border-[2px] border-lighterBlue' onClick={redirectToLogin}>
+                    login
+                </button>
+                {/* Redirect to the sign-up URL when the sign-up button is clicked */}
