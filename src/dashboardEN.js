@@ -14,7 +14,6 @@ export default function DashboardEN(){
     const redirectToLogin = () => {
         window.location.href = loginUrl; // Redirect to the Cognito login URL
     };
-
     // Re-use the login function for signup for now
     // If you have a different URL for signup, replace `handleLogin` in the onClick for the signup button
     const handleSignUp = () => {
