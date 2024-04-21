@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Add this line
 import './App.css';
 import grayImage from './Grayscale_Transparent_NoBuffer.png';
 
@@ -33,7 +34,7 @@ export default function BrowseForm() {
         setIsDragOver(false);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!file) {
             alert('Please upload a .docx file.');
@@ -43,9 +44,22 @@ export default function BrowseForm() {
             alert('Please enter the key provided by your tutor.');
             return;
         }
-        // Proceed with form submission, e.g., to backend server
-        console.log('Submitting:', file, key);
-        alert(`File ${file.name} submitted with key ${key}.`);
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+            const response = await axios.post('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log('File uploaded successfully:', response.data);
+            alert(`File ${file.name} submitted with key ${key}. Response: ${response.data.message}`);
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            alert('Failed to upload file. Please try again.');
+        }
     };
 
     return (
@@ -71,3 +85,4 @@ export default function BrowseForm() {
         </div>
     );
 }
+
