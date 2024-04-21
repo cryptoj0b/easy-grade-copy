@@ -74,7 +74,6 @@ export default function BrowseForm() {
                 <ul className='mt-6 list-disc text-center'>
                     <li>Browse & select OR drag & drop your file</li>
                     <li>Click on submit file</li>
-                    <li>Enter the key given by your tutor</li>
                     <li>Your file will be done and sent to your tutor</li>
                 </ul>
                 <form onSubmit={handleSubmit} className='grid place-items-center mt-6'>
