@@ -1,5 +1,7 @@
-import React from 'react';
 import './App.css';
+import grayImage from './Grayscale_Transparent_NoBuffer.png';
+import {useState} from 'react';
+export default function BrowseForm(){
 
 AWS.config.update({
   region: 'eu-north-1',
@@ -9,7 +11,6 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3({
-  apiVersion: '2006-03-01',
   params: { Bucket: 'studentupload' }
 });
 
@@ -37,14 +38,14 @@ function BrowseForm() {
   };
 
   return (
-     <div className='flex justify-center items-center h-screen' style={{ backgroundColor: "#0b3050" }}>
-            <div className={`bg-blue-100 w-[80%] md:w-auto pb-40 pt-20 px-20 h-auto rounded-lg ${isDragOver ? 'bg-blue-300' : ''}`}
-                onDrop={handleDrop}
-                onDragOver={handleDragOver}
-                onDragEnter={handleDragEnter}
-                onDragLeave={handleDragLeave}>
-                <img src={grayImage} alt="Placeholder" className='object-cover w-96 opacity-50 mx-auto' />
-                <ul className='mt-6 list-disc text-center'>
+    <div className='flex justify-center items-center'>
+        <div className="bg-blue-100 w-[80%] sm:w-fit pb-40 pt-20 md:20 px-20 md:10 h-[570px] sm:h-1/2 justify-center items-center rounded-lg " id="dropArea" onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          onDragEnter={handleDragEnter}
+          onDragLeave={handleDragLeave}>
+          <img src={grayImage} className='object-cover w-96 md:4 justify-center opacity-50 block'></img>
+        <ul className='mt-6 list-disc'>
+          <li className='list-item'>
           <li>Browse & select OR drag & drop your file.</li>
           <li>Click on submit file.</li>
           <li>Your file will be done and sent to your tutor.</li>
