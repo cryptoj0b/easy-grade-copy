@@ -3,6 +3,7 @@ import grayImage from './Grayscale_Transparent_NoBuffer.png';
 import { useState } from 'react';
 import AWS from 'aws-sdk';
 
+// Configure AWS SDK
 AWS.config.update({
   region: 'eu-north-1', 
   credentials: new AWS.CognitoIdentityCredentials({
@@ -16,8 +17,6 @@ const s3 = new AWS.S3({
 });
 
 export default function BrowseForm() {
-  const [key, setKey] = useState("");
-
   // Modified handleDrop function to upload files to S3
   const handleDrop = async (e) => {
     e.preventDefault();
@@ -77,15 +76,11 @@ export default function BrowseForm() {
             click on submit file
           </li>
           <li className='list-item'>
-            enter the key given by your tutor
-          </li>
-          <li className='list-item'>
             your file will be done and sent to your tutor
           </li>
         </ul>
         <form method='post' className='grid mt-6 -ml-10 sm:-m-0'>
-          <input type="file" id="file" name="file" accept=".docx" />
-          <input name='key' className='rounded mt-2' value={key} placeholder=" enter key..." onChange={e => setKey(e.target.value)} /><br />
+          <input type="file" id="file" name="file" accept=".docx" /><br />
           <input type="submit" className='bg-gradient-to-r from-cyan-500 to-blue-500 rounded text-white cursor-pointer' style={{ marginTop: "10px" }} />
         </form>
       </div>
