@@ -1,35 +1,32 @@
+import React from 'react';
 import gradeLogo from './grade_1.png';
 import Footer from './Footer';
 import './fonts.css';
 import './App.css';
-import './header.css'
+import './header.css';
 import logo from './easygradepfp.png';
-import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
-export default function DashboardEN(){
+
+export default function DashboardEN() {
     document.body.style.backgroundColor = "#f3fbfb";
     document.body.style.display = 'flex';
     document.body.style.paddingTop = "150px";
 
     const loginUrl = "https://1.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=1mf5ato0bus8fk929eeau6rogf&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
 
-    // Function to handle redirection
-    const handleLogin = () => {
     // Function to redirect to the login URL
     const redirectToLogin = () => {
-        window.location.href = loginUrl; // Redirect to the Cognito login URL
+        window.location.href = loginUrl;
     };
-    // Re-use the login function for signup for now
-    // If you have a different URL for signup, replace `handleLogin` in the onClick for the signup button
-    const handleSignUp = () => {};
-    // Function to redirect to the signup URL
+
+    // Function to redirect to the signup URL (Currently set to the same as login for demonstration)
     const redirectToSignUp = () => {
-        window.location.href = loginUrl; 
+        window.location.href = loginUrl;
     };
-   
-    return (        
+
+    return (
         <>
             <nav className="container2">
-                {/* ... navigation content ... */}
+                {/* Navigation content would go here */}
             </nav>
             <div className='flex w-screen'>
                 <img src={gradeLogo} className='ml-4 sm:ml-[5vw] w-[90%]' alt="Grade Logo"></img>
@@ -41,16 +38,14 @@ export default function DashboardEN(){
                 By providing instant, comprehensive feedback, we are dedicated to enhancing educational outcomes and empowering tutors; enabling them to focus on fostering student success and excellence.
             </p>
             <div className='w-full inline-flex justify-center mt-[10vh]'>
-                {/* Redirect to the login URL when the login button is clicked */}
                 <button className='dashboard-button rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter mr-[5vw] border-[2px] border-lighterBlue' onClick={redirectToLogin}>
                     login
                 </button>
-                {/* Redirect to the sign-up URL when the sign-up button is clicked */}
                 <button className='dashboard-button ml-[5vw] rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter border-[2px] border-lighterBlue' onClick={redirectToSignUp}>
                     sign up
                 </button>
             </div>
-            <Footer />  
+            <Footer />
         </>
     );
 }
