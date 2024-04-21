@@ -1,5 +1,3 @@
-User
-turn this to arabic when needed
 
 import React, { useState } from 'react';
 import './App.css';
