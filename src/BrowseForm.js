@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import './App.css'; // Make sure this path is correct
-import grayImage from './Grayscale_Transparent_NoBuffer.png'; // Confirm this asset is correctly placed in your project
+import './App.css'; 
 import AWS from 'aws-sdk';
 
-// Configure AWS SDK
 AWS.config.update({
   region: 'eu-north-1',
   credentials: new AWS.CognitoIdentityCredentials({
