@@ -1,7 +1,6 @@
 import './App.css';
 import grayImage from './Grayscale_Transparent_NoBuffer.png';
 import { useState } from 'react';
-import AWS from 'aws-sdk';
 
 AWS.config.update({
   region: 'eu-north-1', 
@@ -11,7 +10,6 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3({
-  apiVersion: '2006-03-01',
   params: { Bucket: 'studentupload' } 
 });
 
