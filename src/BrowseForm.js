@@ -37,23 +37,23 @@ function BrowseForm() {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#f0f8ff' }}>
-      <div style={{ backgroundColor: '#b0c4de', width: '75%', padding: '40px', borderRadius: '8px', overflow: 'hidden' }}
-        onDrop={handleDrop}
-        onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); e.dataTransfer.dropEffect = 'copy'; }}
-        onDragEnter={(e) => { e.preventDefault(); e.stopPropagation(); }}
-        onDragLeave={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-        <img src="path_to_your_image.png" alt="Placeholder" style={{ width: '100%', opacity: '0.5', marginBottom: '16px' }} />
-        <ul style={{ paddingLeft: '20px', margin: '0 0 20px 0', listStyleType: 'disc' }}>
+     <div className='flex justify-center items-center h-screen' style={{ backgroundColor: "#0b3050" }}>
+            <div className={`bg-blue-100 w-[80%] md:w-auto pb-40 pt-20 px-20 h-auto rounded-lg ${isDragOver ? 'bg-blue-300' : ''}`}
+                onDrop={handleDrop}
+                onDragOver={handleDragOver}
+                onDragEnter={handleDragEnter}
+                onDragLeave={handleDragLeave}>
+                <img src={grayImage} alt="Placeholder" className='object-cover w-96 opacity-50 mx-auto' />
+                <ul className='mt-6 list-disc text-center'>
           <li>Browse & select OR drag & drop your file.</li>
           <li>Click on submit file.</li>
           <li>Your file will be done and sent to your tutor.</li>
-        </ul>
-        <input type="file" accept=".docx" style={{ marginTop: '16px' }} />
-        <button style={{ marginTop: '16px', background: 'linear-gradient(to right, #06b6d4, #3182ce)', color: 'white', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer' }}>Submit</button>
-      </div>
-    </div>
-  );
+         </ul>
+                <form onSubmit={handleSubmit} className='grid place-items-center mt-6'>
+                    <input type="file" id="file" name="file" accept=".docx" onChange={e => setFile(e.target.files[0])} />
+                    <input type="submit" value="Submit" className='bg-gradient-to-r from-cyan-500 to-blue-500 rounded text-white cursor-pointer mt-2' />
+                </form>
+            </div>
+        </div>
+    );
 }
-
-export default BrowseForm;
