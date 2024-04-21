@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import AWS from 'aws-sdk';
 import grayImage from './Grayscale_Transparent_NoBuffer.png'; // Ensure this is imported
 
 AWS.config.update({
