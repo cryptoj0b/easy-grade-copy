@@ -11,11 +11,6 @@ import HomePageAR from './HomePageAR';
 import LoginPageAR from './LoginPageAR';
 import TeacherOrStudent from './TorS';
 import TeacherOrStudentAR from './TorSAR';
-import NewPasswordPageEN from './NewPasswordPageEN';
-import NewPasswordPageAR from './NewPasswordPageAR';
-import UserProfile from './UserProfile';
-import { UserProvider } from './UserContext';
-import CreateNewPasswordEN from './CreateNewPasswordEN';
 
 function App() {
   return (
@@ -30,9 +25,6 @@ function App() {
           <Route path="/login-ar" element={<LoginPageAR />} />
           <Route path="/teacher-or-student" element={<TeacherOrStudent />} />
           <Route path="/teacher-or-student-ar" element={<TeacherOrStudentAR />} />
-          <Route path="/create-new-password-en" element={<NewPasswordPageEN />} />
-          <Route path="/create-new-password-ar" element={<NewPasswordPageAR />} />
-          <Route path="/profile" element={<UserProfile />} />
         </Routes>
       </Router>
     </UserProvider>
