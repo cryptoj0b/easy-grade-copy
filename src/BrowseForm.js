@@ -54,20 +54,17 @@ export default function BrowseForm(){
           onDragEnter={handleDragEnter}
           onDragLeave={handleDragLeave}>
           <img src={grayImage} className='object-cover w-96 md:4 justify-center opacity-50 block'></img>
-          <ul className='mt-6 list-disc' style={{direction: 'rtl'}}>
-  <li className='list-item font-Tajawal' style={{direction: 'rtl'}}>
-    تصفح واختر المستند او ضع ملفك في الصفحة
-  </li>
-  <li className='list-item font-Tajawal' style={{direction: 'rtl'}}>
-    انقر على تقديم الملف
-  </li>
-  <li className='list-item font-Tajawal' style={{direction: 'rtl'}}>
-    أدخل المفتاح الذي أعطاه لك معلمك
-  </li>
-  <li className='list-item font-Tajawal' style={{direction: 'rtl'}}>
-    سيتم تصحيح ملفك وإرساله إلى معلمك
-  </li>
-</ul>
+         <ul className='mt-6 list-disc'>
+          <li className='list-item'>
+            browse & select OR drag & drop your file
+          </li>
+          <li className='list-item'>
+            click on submit file
+          </li>
+          <li className='list-item'>
+            your file will be done and sent to your tutor
+          </li>
+        </ul>
 
         {/* Here's your business, change whatever that isn't part of the design, change the design and bad things are gonna happen. it won't be cinematic. */}
         <form method='post' className='grid mt-6 -ml-10 sm:-m-0' >
