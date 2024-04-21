@@ -1,8 +1,6 @@
 import gradeLogo from './grade_1.png';
 import logo from './easygradepfp.png';
 
-export default function DashboardEN() {
-  document.body.style.backgroundColor = "#f3fbfb";
 export default function DashboardEN(){
     document.body.style.backgroundColor = "#f3fbfb";
     document.body.style.display = 'flex';
