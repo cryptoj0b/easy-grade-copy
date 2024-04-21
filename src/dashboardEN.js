@@ -1,6 +1,10 @@
 import gradeLogo from './grade_1.png';
+import Footer from './Footer';
+import './fonts.css';
+import './App.css';
+import './header.css'
 import logo from './easygradepfp.png';
-
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 export default function DashboardEN(){
     document.body.style.backgroundColor = "#f3fbfb";
     document.body.style.display = 'flex';
