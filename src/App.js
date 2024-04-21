@@ -14,7 +14,6 @@ import TeacherOrStudentAR from './TorSAR';
 
 function App() {
   return (
-    <UserProvider>
       <Router>
         <Routes>
           <Route path="/" element={<DashboardEN />} />
@@ -27,7 +26,6 @@ function App() {
           <Route path="/teacher-or-student-ar" element={<TeacherOrStudentAR />} />
         </Routes>
       </Router>
-    </UserProvider>
   );
 }
 
