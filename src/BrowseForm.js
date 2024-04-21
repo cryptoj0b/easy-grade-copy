@@ -4,6 +4,7 @@ import grayImage from './Grayscale_Transparent_NoBuffer.png';
 
 export default function BrowseForm() {
     const [file, setFile] = useState(null);
+    const [key, setKey] = useState('');
     const [isDragOver, setIsDragOver] = useState(false);
 
     const handleDrop = (e) => {
@@ -25,6 +26,7 @@ export default function BrowseForm() {
 
     const handleDragEnter = (e) => {
         e.preventDefault();
+        setIsDragOver(true);
     };
 
     const handleDragLeave = (e) => {
@@ -38,6 +40,10 @@ export default function BrowseForm() {
             alert('Please upload a .docx file.');
             return;
         }
+        if (!key.trim()) {
+            alert('Please enter the key provided by your tutor.');
+            return;
+        }
 
         const formData = new FormData();
         formData.append('file', file);
@@ -46,18 +52,15 @@ export default function BrowseForm() {
             const response = await fetch('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload', {
                 method: 'POST',
                 body: formData
+                // Fetch API does not require Content-Type header for FormData.
+                // It automatically sets the Content-Type to multipart/form-data with the correct boundary.
             });
-
-            if (!response.ok) {  // Check if the request was failed
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-
             const result = await response.json();
             console.log('File uploaded successfully:', result);
-            alert(`File ${file.name} has been uploaded successfully.`);
+            alert(`File ${file.name} submitted with key ${key}. Response: ${result.message}`);
         } catch (error) {
             console.error('Error uploading file:', error);
-            alert('Failed to upload file. Please try again. Error: ' + error.message);
+            alert('Failed to upload file. Please try again.');
         }
     };
 
@@ -72,10 +75,12 @@ export default function BrowseForm() {
                 <ul className='mt-6 list-disc text-center'>
                     <li>Browse & select OR drag & drop your file</li>
                     <li>Click on submit file</li>
-                    <li>Your file will be sent to the server</li>
+                    <li>Enter the key given by your tutor</li>
+                    <li>Your file will be done and sent to your tutor</li>
                 </ul>
                 <form onSubmit={handleSubmit} className='grid place-items-center mt-6'>
                     <input type="file" id="file" name="file" accept=".docx" onChange={e => setFile(e.target.files[0])} />
+                    <input name='key' className='rounded mt-2' value={key} placeholder="Enter key..." onChange={e => setKey(e.target.value)} /><br />
                     <input type="submit" value="Submit" className='bg-gradient-to-r from-cyan-500 to-blue-500 rounded text-white cursor-pointer mt-2' />
                 </form>
             </div>
