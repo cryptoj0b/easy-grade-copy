@@ -25,8 +25,7 @@ export default function DashboardEN(){
     const redirectToSignUp = () => {
         window.location.href = loginUrl; 
     };
-
-    return  (        
+   
     return (        
         <>
             <nav className="container2">
