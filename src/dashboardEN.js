@@ -20,7 +20,7 @@ export default function DashboardEN(){
     };
     // Re-use the login function for signup for now
     // If you have a different URL for signup, replace `handleLogin` in the onClick for the signup button
-    const handleSignUp = () => {
+    const handleSignUp = () => {};
     // Function to redirect to the signup URL
     const redirectToSignUp = () => {
         window.location.href = loginUrl; 
