@@ -2,13 +2,6 @@ import './App.css';
 import grayImage from './Grayscale_Transparent_NoBuffer.png';
 import { useState } from 'react';
 
-AWS.config.update({
-  region: 'eu-north-1', 
-  credentials: new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'eu-north-1_vyP0c3eU8' 
-  })
-});
-
 const s3 = new AWS.S3({
   params: { Bucket: 'studentupload' } 
 });
