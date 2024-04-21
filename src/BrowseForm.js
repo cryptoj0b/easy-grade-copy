@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import AWS from 'aws-sdk';
 
 AWS.config.update({
   region: 'eu-north-1',
