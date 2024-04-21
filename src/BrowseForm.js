@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 import grayImage from './Grayscale_Transparent_NoBuffer.png';
+
 export default function BrowseForm() {
     const [file, setFile] = useState(null);
     const [isDragOver, setIsDragOver] = useState(false);
+
     const handleDrop = (e) => {
         e.preventDefault();
         setIsDragOver(false); // Reset drag over state
@@ -15,35 +17,41 @@ export default function BrowseForm() {
             alert('Please drop a .docx file.');
         }
     };
+
     const handleDragOver = (e) => {
         e.preventDefault();
         setIsDragOver(true);
     };
+
     const handleDragEnter = (e) => {
         e.preventDefault();
     };
+
     const handleDragLeave = (e) => {
         e.preventDefault();
         setIsDragOver(false);
     };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!file) {
             alert('Please upload a .docx file.');
             return;
         }
+
         const formData = new FormData();
         formData.append('file', file);
 
         try {
             const response = await fetch('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload', {
-            const response = await fetch('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev', {
                 method: 'POST',
                 body: formData
             });
+
             if (!response.ok) {  // Check if the request was failed
                 throw new Error('Network response was not ok ' + response.statusText);
             }
+
             const result = await response.json();
             console.log('File uploaded successfully:', result);
             alert(`File ${file.name} has been uploaded successfully.`);
@@ -52,6 +60,7 @@ export default function BrowseForm() {
             alert('Failed to upload file. Please try again. Error: ' + error.message);
         }
     };
+
     return (
         <div className='flex justify-center items-center h-screen' style={{ backgroundColor: "#0b3050" }}>
             <div className={`bg-blue-100 w-[80%] md:w-auto pb-40 pt-20 px-20 h-auto rounded-lg ${isDragOver ? 'bg-blue-300' : ''}`}
