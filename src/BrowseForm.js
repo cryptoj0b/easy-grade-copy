@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Add this line
 import './App.css';
 import grayImage from './Grayscale_Transparent_NoBuffer.png';
 
@@ -49,13 +48,15 @@ export default function BrowseForm() {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+            const response = await fetch('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload', {
+                method: 'POST',
+                body: formData
+                // Note: Fetch API does not require Content-Type header for FormData.
+                // It automatically sets the Content-Type to multipart/form-data with the correct boundary.
             });
-            console.log('File uploaded successfully:', response.data);
-            alert(`File ${file.name} submitted with key ${key}. Response: ${response.data.message}`);
+            const result = await response.json();
+            console.log('File uploaded successfully:', result);
+            alert(`File ${file.name} submitted with key ${key}. Response: ${result.message}`);
         } catch (error) {
             console.error('Error uploading file:', error);
             alert('Failed to upload file. Please try again.');
@@ -85,4 +86,3 @@ export default function BrowseForm() {
         </div>
     );
 }
-
