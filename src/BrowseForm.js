@@ -38,7 +38,7 @@ export default function BrowseForm() {
         setUploading(true);
 
         try {
-            const response = await fetch('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload', {
+            const response = await fetch('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/ANY', {
                 method: 'POST',
                 body: formData
             });
