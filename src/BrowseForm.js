@@ -26,28 +26,6 @@ export default function BrowseForm() {
         }
     };
 
-    const handleOptionsRequest = async (url) => {
-        try {
-            const response = await fetch(url, {
-                method: 'OPTIONS',
-                headers: {
-                    'Access-Control-Request-Method': 'POST', // Specify the method you plan to use after preflight
-                    'Access-Control-Request-Headers': 'Content-Type', // Headers the actual request will use
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`OPTIONS request failed: ${response.statusText}`);
-            }
-
-            console.log('OPTIONS request succeeded:', response);
-            alert('OPTIONS request successful!');
-        } catch (error) {
-            console.error('Error making OPTIONS request:', error);
-            alert(`Failed to make OPTIONS request. Error: ${error.message}`);
-        }
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!file) {
@@ -61,7 +39,7 @@ export default function BrowseForm() {
 
         try {
             const response = await fetch('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload', {
-                method: 'POST', // Correct method
+                method: 'POST',
                 body: formData
             });
 
@@ -97,7 +75,6 @@ export default function BrowseForm() {
                 <form onSubmit={handleSubmit} className='grid place-items-center mt-6'>
                     <input type="file" id="file" name="file" accept=".docx" onChange={e => setFile(e.target.files[0])} />
                     <input type="submit" value="Submit" disabled={uploading} className={`bg-gradient-to-r from-cyan-500 to-blue-500 rounded text-white cursor-pointer mt-2 ${uploading ? 'opacity-50' : 'opacity-100'}`} />
-                    <button type="button" onClick={() => handleOptionsRequest('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload')} className="bg-gradient-to-r from-green-500 to-blue-500 rounded text-white cursor-pointer mt-4">Send OPTIONS Request</button>
                 </form>
             </div>
         </div>
