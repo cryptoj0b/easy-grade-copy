@@ -38,7 +38,7 @@ export default function BrowseForm() {
         setUploading(true);
 
         try {
-            const response = await fetch('https://kxs4wm7nc2.execute-api.eu-north-1.amazonaws.com/dev/upload', {
+            const response = await fetch('https://sxrxorwbp1.execute-api.eu-north-1.amazonaws.com/default/RubricFileUploader', {
                 method: 'POST',
                 body: formData
             });
