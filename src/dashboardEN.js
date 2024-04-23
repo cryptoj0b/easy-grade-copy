@@ -11,7 +11,7 @@ export default function DashboardEN() {
     document.body.style.display = 'flex';
     document.body.style.paddingTop = "150px";
 
-    const loginUrl = "https://in1.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=7833qbs6g3jr774g651s2u7tf1&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
+    const loginUrl = "https://inf.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=24po8h2hhguqkjh1ial0sqve7f&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
 
     // Function to redirect to the login URL
     const redirectToLogin = () => {
