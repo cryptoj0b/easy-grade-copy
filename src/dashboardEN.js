@@ -15,7 +15,7 @@ export default function DashboardEN() {
 
     // Function to redirect to the TorS (Teacher or Student) page
     const redirectToTorS = () => {
-        navigate('/teacher-or-student');
+        navigate("/TeacherOrStudent");
     };
 
     return (
