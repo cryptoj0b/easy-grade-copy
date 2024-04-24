@@ -11,8 +11,8 @@ export default function TeacherOrStudent() {
     const redirectUriTeacher = " https://i5.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=7pic17ep56u5p9fkdhkjavte81&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
     const redirectUriStudent = " https://i5.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=7pic17ep56u5p9fkdhkjavte81&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
 
-    const loginUrlTeacher = `${baseLoginUrl}?${clientId}&${responseType}&${scope}&${redirectUriTeacher}`;
-    const loginUrlStudent = `${baseLoginUrl}?${clientId}&${responseType}&${scope}&${redirectUriStudent}`;
+    const loginUrlTeacher = `https://i5.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=7pic17ep56u5p9fkdhkjavte81&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome`;
+    const loginUrlStudent = `https://i5.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=7pic17ep56u5p9fkdhkjavte81&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome`;
 
     const handleTeacherClick = () => {
         window.location.href = loginUrlTeacher;
