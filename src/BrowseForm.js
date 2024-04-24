@@ -5,7 +5,7 @@ export default function App() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
 
-  const API_URL = 'hhttps://ylj9agi7la.execute-api.eu-north-1.amazonaws.com/prod/teacher-upload';
+  const API_URL = 'https://ylj9agi7la.execute-api.eu-north-1.amazonaws.com/prod/teacher-upload';
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
