@@ -11,16 +11,9 @@ export default function DashboardEN() {
     document.body.style.display = 'flex';
     document.body.style.paddingTop = "150px";
 
-    const loginUrl = "https://inf.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=24po8h2hhguqkjh1ial0sqve7f&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
-
-    // Function to redirect to the login URL
-    const redirectToLogin = () => {
-        window.location.href = loginUrl;
-    };
-
-    // Function to redirect to the signup URL (Currently set to the same as login for demonstration)
-    const redirectToSignUp = () => {
-        window.location.href = loginUrl;
+    // Function to redirect to the TorS (Teacher or Student) page
+    const redirectToTorS = () => {
+        window.location.href = '/teacher-or-student';
     };
 
     return (
@@ -38,10 +31,10 @@ export default function DashboardEN() {
                 By providing instant, comprehensive feedback, we are dedicated to enhancing educational outcomes and empowering tutors; enabling them to focus on fostering student success and excellence.
             </p>
             <div className='w-full inline-flex justify-center mt-[10vh]'>
-                <button className='dashboard-button rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter mr-[5vw] border-[2px] border-lighterBlue' onClick={redirectToLogin}>
+                <button className='dashboard-button rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter mr-[5vw] border-[2px] border-lighterBlue' onClick={redirectToTorS}>
                     login
                 </button>
-                <button className='dashboard-button ml-[5vw] rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter border-[2px] border-lighterBlue' onClick={redirectToSignUp}>
+                <button className='dashboard-button ml-[5vw] rounded-lg w-[140px] sm:w-[200px] h-[50px] text-[20px] text-darkBlue pb-[5px] bg-whiter border-[2px] border-lighterBlue' onClick={redirectToTorS}>
                     sign up
                 </button>
             </div>
