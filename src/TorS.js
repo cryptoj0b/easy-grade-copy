@@ -8,8 +8,8 @@ export default function TeacherOrStudent() {
     const clientId = "client_id=24po8h2hhguqkjh1ial0sqve7f";
     const responseType = "response_type=code";
     const scope = "scope=email+openid";
-    const redirectUriTeacher = "redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fteacher-home";
-    const redirectUriStudent = "redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fstudent-home";
+    const redirectUriTeacher = " https://i5.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=7pic17ep56u5p9fkdhkjavte81&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
+    const redirectUriStudent = " https://i5.auth.eu-north-1.amazoncognito.com/oauth2/authorize?client_id=7pic17ep56u5p9fkdhkjavte81&response_type=code&scope=email+openid&redirect_uri=https%3A%2F%2Fmaster.d3dywdz0zlcr7c.amplifyapp.com%2Fhome";
 
     const loginUrlTeacher = `${baseLoginUrl}?${clientId}&${responseType}&${scope}&${redirectUriTeacher}`;
     const loginUrlStudent = `${baseLoginUrl}?${clientId}&${responseType}&${scope}&${redirectUriStudent}`;
