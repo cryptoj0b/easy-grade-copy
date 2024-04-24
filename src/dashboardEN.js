@@ -13,7 +13,7 @@ export default function DashboardEN() {
 
     // Function to redirect to the TorS (Teacher or Student) page
     const redirectToTorS = () => {
-        window.location.href = '/teacher-or-student';
+        window.location.href = '/TorS';
     };
 
     return (
