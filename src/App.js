@@ -18,8 +18,6 @@ function App() {
         <Routes>
           <Route path="/" element={<DashboardEN />} />
           <Route path="/login" element={<LoginPageEn />} />
-          <Route path="/login-teacher" element={<TeacherLoginPage />} />
-          <Route path="/login-student" element={<StudentLoginPage />} /> */}
           <Route path="/Home" element={<HomePage />} />
           <Route path="/dashboard-ar" element={<DashboardAR />} />
           <Route path="/Home-ar" element={<HomePageAR />} />
