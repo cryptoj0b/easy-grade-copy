@@ -5,7 +5,7 @@ import './fonts.css';
 import './App.css';
 import './header.css';
 import logo from './easygradepfp.png';
-import { BrowserRouter as Router, Route, Link, Routes, usenavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 
 export default function DashboardEN() {
     document.body.style.backgroundColor = "#f3fbfb";
@@ -15,7 +15,7 @@ export default function DashboardEN() {
 
     // Function to redirect to the TorS (Teacher or Student) page
     const redirectToTorS = () => {
-        navigate('/TorS');
+        navigate('/teacher-or-student');
     };
 
     return (
