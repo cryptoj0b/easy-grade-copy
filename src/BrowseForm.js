@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-export default function TeacherUploadForm() {
+export default function BrowseForm() {
     const [file, setFile] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [message, setMessage] = useState('');
