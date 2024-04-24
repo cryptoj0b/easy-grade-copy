@@ -24,8 +24,8 @@ function App() {
           <Route path="/dashboard-ar" element={<DashboardAR />} />
           <Route path="/Home-ar" element={<HomePageAR />} />
           <Route path="/login-ar" element={<LoginPageAR />} />
-          <Route path="/teacher-or-student" element={<TeacherOrStudent />} />
-          <Route path="/teacher-or-student-ar" element={<TeacherOrStudentAR />} />
+          <Route path="/TeacherOrStudent" element={<TeacherOrStudent />} />
+          <Route path="/TeacherOrStudentAR" element={<TeacherOrStudentAR />} />
         </Routes>
       </Router>
   );
