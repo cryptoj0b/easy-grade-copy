@@ -60,25 +60,3 @@ export default function App() {
     </div>
   );
 }
-button, input[type="file"] {
-  margin: 10px;
-  padding: 8px;
-  font-size: 16px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: default;
-}
-
-button:hover:not(:disabled) {
-  background-color: #45a049;
-}
