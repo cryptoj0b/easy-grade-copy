@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import './App.css'; 
 
 export default function App() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // New state to track loading status
 
   const API_URL = 'https://ylj9agi7la.execute-api.eu-north-1.amazonaws.com/prod/teacher-upload';
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
-    setMessage('');
+    setMessage(''); // Clear previous messages when a new file is selected
   };
 
   const handleUpload = async () => {
@@ -19,7 +18,7 @@ export default function App() {
       return;
     }
 
-    setIsLoading(true);
+    setIsLoading(true); // Start loading
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = async () => {
@@ -42,56 +41,44 @@ export default function App() {
       } catch (error) {
         setMessage(`Error: ${error.message}`);
       } finally {
-        setIsLoading(false);
+        setIsLoading(false); // End loading
       }
     };
     reader.onerror = error => {
       setMessage(`Error: ${error.message}`);
-      setIsLoading(false);
+      setIsLoading(false); // End loading on error
     };
   };
 
   return (
-    <div className="app-container">
+    <div>
       <input type="file" accept=".docx" onChange={handleFileChange} disabled={isLoading} />
       <button onClick={handleUpload} disabled={!file || isLoading}>
         {isLoading ? 'Uploading...' : 'Upload File'}
       </button>
-      <p className={message.startsWith('Error') ? 'error-message' : 'success-message'}>{message}</p>
+      <p>{message}</p>
     </div>
   );
 }
+button, input[type="file"] {
+  margin: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
 
-<style>
-  .app-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  input[type="file"] {
-    margin: 10px 0;
-  }
+button:disabled {
+  background-color: #ccc;
+  cursor: default;
+}
 
-  button {
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-
-  button:disabled {
-    background-color: #ccc;
-  }
-
-  .error-message {
-    color: red;
-  }
-
-  .success-message {
-    color: green;
-  }
-</style>
+button:hover:not(:disabled) {
+  background-color: #45a049;
+}
