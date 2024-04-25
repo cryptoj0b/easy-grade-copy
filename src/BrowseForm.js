@@ -83,36 +83,38 @@ export default function App() {
            onDragLeave={handleDragLeave}
            onDrop={handleDrop}>
         Drag and drop your files here or
-        <input type="file" onChange={handleFileChange} multiple style={{ display: 'none' }}/>
-        <button onClick={() => document.querySelector('input[type="file"]').click()}>
+        <button onClick={() => document.querySelector('input[type="file"]').click()} className="file-select-btn">
           Click to select files
         </button>
-        <button onClick={handleUpload} disabled={!files.length || isLoading}>
+        <input type="file" onChange={handleFileChange} multiple style={{ display: 'none' }}/>
+        <button onClick={handleUpload} disabled={!files.length || isLoading} className="upload-btn">
           {isLoading ? 'Uploading...' : 'Upload Files'}
         </button>
         <pre>{message}</pre>
       </div>
       <style jsx>{`
         .upload-area {
-          width: 100%;
+          width: 80%;
+          max-width: 600px;
           height: 200px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          margin: 20px;
+          margin: 20px auto;
           padding: 20px;
           cursor: pointer;
           border-radius: 10px;
           background-color: #f9f9f9;
-          border: ${dragging ? '3px dashed #666' : '3px dashed #ccc'};
+          border: ${dragging ? '3px dashed #007bff' : '3px dashed #ccc'};
+          transition: border 0.3s ease;
         }
 
         .upload-area:hover {
-          background-color: #f1f1f1;
+          border-color: #007bff;
         }
 
-        button {
+        .file-select-btn, .upload-btn {
           margin: 10px;
           padding: 10px 20px;
           font-size: 16px;
@@ -121,14 +123,21 @@ export default function App() {
           border: none;
           border-radius: 4px;
           cursor: pointer;
+          transition: background-color 0.3s ease;
         }
 
-        button:disabled {
+        .upload-btn:disabled {
           background-color: #ccc;
         }
 
-        button:hover:not(:disabled) {
+        .upload-btn:hover:not(:disabled), .file-select-btn:hover {
           background-color: #45a049;
+        }
+
+        pre {
+          white-space: pre-wrap;
+          text-align: center;
+          color: #333;
         }
       `}</style>
     </>
