@@ -1,0 +1,49 @@
+.file-upload-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.drop-area {
+  border: 2px dashed #0094ff;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.drop-area .icon {
+  /* Add a background image or icon indicating the upload action */
+  width: 50px;
+  height: 50px;
+  background-color: #0094ff; /* placeholder for actual icon */
+  margin: auto;
+  border-radius: 50%;
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+}
+
+.file-list li {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-name {
+  /* Styling for file name */
+}
+
+.file-size {
+  /* Styling for file size */
+}
