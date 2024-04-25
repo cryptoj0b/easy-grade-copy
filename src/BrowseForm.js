@@ -1,14 +1,16 @@
-// App.js
 import React, { useState } from 'react';
+import './App.css'; 
 
 export default function App() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const API_URL = 'https://ylj9agi7la.execute-api.eu-north-1.amazonaws.com/prod/teacher-upload';
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
+    setMessage('');
   };
 
   const handleUpload = async () => {
@@ -17,6 +19,7 @@ export default function App() {
       return;
     }
 
+    setIsLoading(true);
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = async () => {
@@ -38,16 +41,57 @@ export default function App() {
         }
       } catch (error) {
         setMessage(`Error: ${error.message}`);
+      } finally {
+        setIsLoading(false);
       }
     };
-    reader.onerror = error => setMessage(`Error: ${error.message}`);
+    reader.onerror = error => {
+      setMessage(`Error: ${error.message}`);
+      setIsLoading(false);
+    };
   };
 
   return (
-    <div>
-      <input type="file" accept=".docx" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload File</button>
-      <p>{message}</p>
+    <div className="app-container">
+      <input type="file" accept=".docx" onChange={handleFileChange} disabled={isLoading} />
+      <button onClick={handleUpload} disabled={!file || isLoading}>
+        {isLoading ? 'Uploading...' : 'Upload File'}
+      </button>
+      <p className={message.startsWith('Error') ? 'error-message' : 'success-message'}>{message}</p>
     </div>
   );
 }
+
+<style>
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  input[type="file"] {
+    margin: 10px 0;
+  }
+
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  button:disabled {
+    background-color: #ccc;
+  }
+
+  .error-message {
+    color: red;
+  }
+
+  .success-message {
+    color: green;
+  }
+</style>
